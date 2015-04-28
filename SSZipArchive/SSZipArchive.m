@@ -198,7 +198,7 @@
 	                fclose(fp);
 
 	                // Set the original datetime property
-	                if (fileInfo.dosDate != 0) {
+	                if (fileInfo.dosDate != 0 && NO /* DISABLES CODE */) {
 	                    NSDate *orgDate = [[self class] _dateWithMSDOSFormat:(UInt32)fileInfo.dosDate];
 	                    NSDictionary *attr = [NSDictionary dictionaryWithObject:orgDate forKey:NSFileModificationDate];
 
@@ -212,7 +212,7 @@
 
                     // Set the original permissions on the file
                     uLong permissions = fileInfo.external_fa >> 16;
-                    if (permissions != 0) {
+                    if (permissions != 0 && NO /* DISABLES CODE */) {
                         // Store it into a NSNumber
                         NSNumber *permissionsValue = @(permissions);
 
@@ -270,7 +270,8 @@
 
 	// Close
 	unzClose(zip);
-
+    
+    /*
 	// The process of decompressing the .zip archive causes the modification times on the folders
     // to be set to the present time. So, when we are done, they need to be explicitly set.
     // set the modification date on all of the directories.
@@ -283,6 +284,7 @@
             NSLog(@"[SSZipArchive] Error setting directory file modification date attribute: %@",err.localizedDescription);
         }
     }
+     */
 
 #if !__has_feature(objc_arc)
 	[directoriesModificationDates release];
