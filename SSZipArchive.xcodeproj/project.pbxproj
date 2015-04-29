@@ -37,6 +37,11 @@
 		21CC421117DB7D7900201DDC /* SSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CC420317DB7D6300201DDC /* SSAppDelegate.m */; };
 		21CC421317DB7E0500201DDC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CC421217DB7E0500201DDC /* libz.dylib */; };
 		21CC421417DB7E0900201DDC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 21CC421217DB7E0500201DDC /* libz.dylib */; };
+		A01EDAD21AF132AA003B18AC /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 21CC41E317DB7D2F00201DDC /* SSZipArchive.m */; };
+		A01EDAD31AF132AA003B18AC /* ioapi.c in Sources */ = {isa = PBXBuildFile; fileRef = 210D524C17DEFB880060D41A /* ioapi.c */; };
+		A01EDAD41AF132AA003B18AC /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 210D524E17DEFB880060D41A /* mztools.c */; };
+		A01EDAD51AF132AA003B18AC /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 210D525017DEFB880060D41A /* unzip.c */; };
+		A01EDAD61AF132AA003B18AC /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 210D525217DEFB880060D41A /* zip.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,18 @@
 			remoteInfo = SSZipArchive;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A01EDAB41AF1325D003B18AC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		011F4B95182D71B700DE704F /* RelativeSymbolicLink.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = RelativeSymbolicLink.zip; sourceTree = "<group>"; };
@@ -83,6 +100,7 @@
 		21CC420817DB7D6300201DDC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		21CC420917DB7D6300201DDC /* SSZipArchive-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SSZipArchive-Info.plist"; sourceTree = "<group>"; };
 		21CC421217DB7E0500201DDC /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		A01EDAB61AF1325D003B18AC /* liblibSSSZipArchive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibSSSZipArchive.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +123,13 @@
 				21CC41C217DB7D1300201DDC /* XCTest.framework in Frameworks */,
 				21CC41C417DB7D1300201DDC /* UIKit.framework in Frameworks */,
 				21CC41C317DB7D1300201DDC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A01EDAB31AF1325D003B18AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +168,7 @@
 			children = (
 				21CC41A517DB7D1300201DDC /* SSZipArchive.app */,
 				21CC41C017DB7D1300201DDC /* SSZipArchiveTests.xctest */,
+				A01EDAB61AF1325D003B18AC /* liblibSSSZipArchive.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -268,6 +294,23 @@
 			productReference = 21CC41C017DB7D1300201DDC /* SSZipArchiveTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A01EDAB51AF1325D003B18AC /* libSSSZipArchive */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A01EDACB1AF1325D003B18AC /* Build configuration list for PBXNativeTarget "libSSSZipArchive" */;
+			buildPhases = (
+				A01EDAB21AF1325D003B18AC /* Sources */,
+				A01EDAB31AF1325D003B18AC /* Frameworks */,
+				A01EDAB41AF1325D003B18AC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libSSSZipArchive;
+			productName = libSSSZipArchive;
+			productReference = A01EDAB61AF1325D003B18AC /* liblibSSSZipArchive.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -280,6 +323,9 @@
 				TargetAttributes = {
 					21CC41BF17DB7D1300201DDC = {
 						TestTargetID = 21CC41A417DB7D1300201DDC;
+					};
+					A01EDAB51AF1325D003B18AC = {
+						CreatedOnToolsVersion = 6.3;
 					};
 				};
 			};
@@ -297,6 +343,7 @@
 			targets = (
 				21CC41A417DB7D1300201DDC /* SSZipArchive */,
 				21CC41BF17DB7D1300201DDC /* SSZipArchiveTests */,
+				A01EDAB51AF1325D003B18AC /* libSSSZipArchive */,
 			);
 		};
 /* End PBXProject section */
@@ -352,6 +399,18 @@
 				210D525B17DEFB880060D41A /* zip.c in Sources */,
 				210D525717DEFB880060D41A /* mztools.c in Sources */,
 				21CC41ED17DB7D2F00201DDC /* SSZipArchive.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A01EDAB21AF1325D003B18AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A01EDAD21AF132AA003B18AC /* SSZipArchive.m in Sources */,
+				A01EDAD31AF132AA003B18AC /* ioapi.c in Sources */,
+				A01EDAD41AF132AA003B18AC /* mztools.c in Sources */,
+				A01EDAD51AF132AA003B18AC /* unzip.c in Sources */,
+				A01EDAD61AF132AA003B18AC /* zip.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +557,45 @@
 			};
 			name = Release;
 		};
+		A01EDAC71AF1325D003B18AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		A01EDAC81AF1325D003B18AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -527,6 +625,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		A01EDACB1AF1325D003B18AC /* Build configuration list for PBXNativeTarget "libSSSZipArchive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A01EDAC71AF1325D003B18AC /* Debug */,
+				A01EDAC81AF1325D003B18AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
