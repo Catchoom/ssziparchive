@@ -75,7 +75,7 @@
 	int ret = 0;
 	unsigned char buffer[4096] = {0};
 	NSFileManager *fileManager = [NSFileManager defaultManager];
-	NSMutableSet *directoriesModificationDates = [[NSMutableSet alloc] init];
+	//NSMutableSet *directoriesModificationDates = [[NSMutableSet alloc] init];
 
 	// Message delegate
 	if ([delegate respondsToSelector:@selector(zipArchiveWillUnzipArchiveAtPath:zipInfo:)]) {
@@ -171,10 +171,10 @@
 	        if (nil != err) {
 	            NSLog(@"[SSZipArchive] Error: %@", err.localizedDescription);
 	        }
-
+/*
 	        if(!fileIsSymbolicLink)
 	            [directoriesModificationDates addObject: [NSDictionary dictionaryWithObjectsAndKeys:fullPath, @"path", modDate, @"modDate", nil]];
-
+*/
 	        if ([fileManager fileExistsAtPath:fullPath] && !isDirectory && !overwrite) {
 				unzCloseCurrentFile(zip);
 				ret = unzGoToNextFile(zip);
@@ -284,11 +284,11 @@
             NSLog(@"[SSZipArchive] Error setting directory file modification date attribute: %@",err.localizedDescription);
         }
     }
-     */
 
 #if !__has_feature(objc_arc)
 	[directoriesModificationDates release];
 #endif
+     */
 
 	// Message delegate
 	if (success && [delegate respondsToSelector:@selector(zipArchiveDidUnzipArchiveAtPath:zipInfo:unzippedPath:)]) {
